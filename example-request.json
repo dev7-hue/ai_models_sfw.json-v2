@@ -1,0 +1,153 @@
+{
+  "input": {
+    "workflow": {
+      "1": {
+        "inputs": {
+          "value": 1080
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+          "title": "EmptyLatentImage"
+        }
+      },
+      "2": {
+        "inputs": {
+          "filename": "qwen_image_2512_fp8_e4m3fn_scaled_comfyui_4steps_v1.0.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "3": {
+        "inputs": {
+          "filename": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "4": {
+        "inputs": {
+          "seed": 500139376894737,
+          "steps": 4,
+          "cfg": 1,
+          "sampler_name": "euler",
+          "scheduler": "beta",
+          "denoise": 1,
+          "model": [
+            "8",
+            0
+          ],
+          "positive": [
+            "9",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "latent_image": [
+            "1",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "5": {
+        "inputs": {
+          "samples": [
+            "4",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "6": {
+        "inputs": {
+          "text": "extra fingers, deformed hands, mutated hands, fused fingers",
+          "clip": [
+            "7",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt) : Neg"
+        }
+      },
+      "7": {
+        "inputs": {
+          "filename": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "8": {
+        "inputs": {
+          "value": 0.6,
+          "model": [
+            "10",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "9": {
+        "inputs": {
+          "text": "A beautiful yang woman , sitting seductively on rugged rocky beach terrain near calm water's edge, wearing a textured coral-pink and white bandeau-style bikini top with halter neck tie and matching low-rise tie-side bottoms decorated with small floral accents, long toned legs elegantly extended forward and slightly angled apart to highlight length and shape, one leg straight with pointed bare foot, the other softly bent at the knee for natural curve, both bare feet visible and gracefully arched, one arm propped behind her for support with palm flat on the rocks, the other arm relaxed across her lap or lightly resting on her thigh with fingers delicately placed, head tilted slightly downward and to the side, sultry downward gaze with softly parted glossy lips, dreamy half-closed eyes expressing calm confidence and allure, subtle natural makeup, light sun-kissed glow on skin, rocky shore with pebbles and shallow water in background, serene lake or sea horizon, soft golden hour natural lighting with gentle shadows accentuating leg lines, curves, collarbones and facial features, ultra-detailed realistic skin texture, photorealistic fashion editorial style, sharp focus on face expression, eyes, lips, long legs and seductive pose, 8k, professional model photography quality",
+          "clip": [
+            "7",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt) : Pos"
+        }
+      },
+      "10": {
+        "inputs": {
+          "filename": "Trained\\A1_000002400.safetensors",
+          "model": [
+            "2",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "Character Lora"
+        }
+      },
+      "12": {
+        "inputs": {
+          "filename_prefix": "trained/sfw/image_",
+          "images": [
+            "5",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      }
+    }
+  }
+}
